@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">My Wallet</string>
+    <string name="Login">Login</string>
+    <string name="enter_password">Enter your password to access</string>
+    <string name="fingerprint">Fingerprint</string>
+    <string name="failed_fingerprint_access">Failed access, please try again</string>
+    <string name="access">Access</string>
+    <string name="use_fingerprint">use fingerprint to access</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_hardware">Your device don\'t have fingerprint</string>
+    <string name="un_available">Your fingerprint unavailable right now</string>
+    <string name="no_fingerprint_saved">Your device don\'t have any fingerprint saved, so make one</string>
+    <string name="success_fingerprint_access">Fingerprint is ready</string>
+    <string name="wrong_password">Wrong password</string>
 </resources>

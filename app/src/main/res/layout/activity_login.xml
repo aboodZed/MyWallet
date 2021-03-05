@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".feature.login.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/LargeTextView"
+            android:layout_gravity="center"
+            android:text="@string/Login" />
+
+        <TextView
+            style="@style/SmallTextView"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/enter_password" />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/EditText"
+            android:layout_marginTop="@dimen/margin_small"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_status"
+            style="@style/SmallTextView"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:textColor="@color/red" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_fingerprint"
+            style="@style/Button"
+            android:drawableLeft="@drawable/ic_fingerprint"
+            android:drawablePadding="@dimen/margin_little"
+            android:text="@string/fingerprint" />
+
+    </LinearLayout>
+
+</FrameLayout>

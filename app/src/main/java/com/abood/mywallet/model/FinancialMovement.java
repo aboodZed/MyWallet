@@ -1,6 +1,7 @@
 package com.abood.mywallet.model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -11,13 +12,13 @@ public class FinancialMovement {
 
     private double value;
 
-    private int account_id;
+    private String currency;
 
     private long create_at;
 
-    public FinancialMovement(double value, int account_id, long create_at) {
+    public FinancialMovement(double value, String currency, long create_at) {
         this.value = value;
-        this.account_id = account_id;
+        this.currency = currency;
         this.create_at = create_at;
     }
 
@@ -33,8 +34,9 @@ public class FinancialMovement {
         return value;
     }
 
-    public int getAccount_id() {
-        return account_id;
+
+    public String getCurrency() {
+        return currency;
     }
 
     public long getCreate_at() {
@@ -46,7 +48,7 @@ public class FinancialMovement {
         return "FinancialMovement{" +
                 "id=" + id +
                 ", value=" + value +
-                ", account_id=" + account_id +
+                ", currency='" + currency + '\'' +
                 ", create_at=" + create_at +
                 '}';
     }

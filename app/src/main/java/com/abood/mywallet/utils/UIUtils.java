@@ -20,14 +20,14 @@ public class UIUtils {
     public static String getDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        String date = DateFormat.format("dd/MM/yyyy", cal).toString();
         return date;
     }
 
     public static String getTime(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("hh:mm", cal).toString();
+        String date = DateFormat.format("hh:mm:ss", cal).toString();
         return date;
     }
 }

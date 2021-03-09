@@ -1,25 +1,35 @@
 package com.abood.mywallet.utils.common;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewbinding.ViewBinding;
 
+import com.abood.mywallet.utils.AppController;
+import com.abood.mywallet.utils.LocalStorage;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends ViewBinding>
+        extends AppCompatActivity implements BaseView {
 
-    public View rootView;
+    private T viewBinding;
 
-    protected void setRootView(View rootView) {
-        this.rootView = rootView;
+    public void setViewBinding(T viewBinding) {
+        this.viewBinding = viewBinding;
+    }
+
+    public T getViewBinding() {
+        return viewBinding;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setContentView(viewBinding.getRoot());
         super.onCreate(savedInstanceState);
-        setContentView(rootView);
+        data();
         click();
     }
 
-    public abstract void click();
+    public LocalStorage getLocalStorage() {
+        return AppController.getInstance().getLocalStorage();
+    }
 }

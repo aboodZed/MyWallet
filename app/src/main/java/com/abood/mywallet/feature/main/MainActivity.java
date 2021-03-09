@@ -2,38 +2,43 @@ package com.abood.mywallet.feature.main;
 
 import android.os.Bundle;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.abood.mywallet.databinding.ActivityMainBinding;
+import com.abood.mywallet.feature.main.adapter.PageAdapter;
+import com.abood.mywallet.feature.main.fragment.FinancialMovementsFragment;
 import com.abood.mywallet.model.FinancialMovement;
+import com.abood.mywallet.utils.AppContent;
 import com.abood.mywallet.utils.common.BaseActivity;
 
-import java.util.List;
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
-public class MainActivity extends BaseActivity {
-
-    private ActivityMainBinding binding;
     private MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        super.setRootView(binding.getRoot());
+        super.setViewBinding(ActivityMainBinding.inflate(getLayoutInflater()));
         super.onCreate(savedInstanceState);
+    }
 
-        mainViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MainViewModel.class);
-        mainViewModel.getAllFinancialMovement().observe(this, new Observer<List<FinancialMovement>>() {
-            @Override
-            public void onChanged(List<FinancialMovement> financialMovements) {
-                //update recycle view
-                binding.tvTest.setText(financialMovements.toString());
-            }
-        });
+    @Override
+    public void data() {
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        initViewPager();
+    }
+
+    private void initViewPager() {
+        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager());
+        pageAdapter.addFragment(new FinancialMovementsFragment(AppContent.DOLLAR, mainViewModel), AppContent.DOLLAR);
+        pageAdapter.addFragment(new FinancialMovementsFragment(AppContent.DINAR, mainViewModel), AppContent.DINAR);
+        pageAdapter.addFragment(new FinancialMovementsFragment(AppContent.SHEKEL, mainViewModel), AppContent.SHEKEL);
+        getViewBinding().vpWallet.setAdapter(pageAdapter);
+        getViewBinding().tlTabs.setupWithViewPager(getViewBinding().vpWallet);
     }
 
     @Override
     public void click() {
-
+        getViewBinding().fabAdd.setOnClickListener(view -> mainViewModel.insert(new FinancialMovement(40
+                , AppContent.DOLLAR, System.currentTimeMillis() / 1000)));
     }
 }

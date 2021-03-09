@@ -1,4 +1,4 @@
-package com.abood.mywallet.utils.localDataBase.dao;
+package com.abood.mywallet.localDataBase.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -24,7 +24,12 @@ public interface FinancialMovementDao {
     void delete(FinancialMovement financialMovement);
 
     @Query("Select * from financialmovement order by id asc")
-    LiveData<List<FinancialMovement>> getAllFinancailMovement();
+    LiveData<List<FinancialMovement>> getAllFinancialMovement();
 
+    @Query("SELECT * FROM financialmovement WHERE currency Like (:currency) order by id asc")
+    LiveData<List<FinancialMovement>> getFinancialMovementsByCurrency(String currency);
+
+    @Query("SELECT SUM(value) FROM financialmovement WHERE currency Like (:currency)")
+    LiveData<Integer> getSumFinancialMovementsByCurrency(String currency);
 
 }

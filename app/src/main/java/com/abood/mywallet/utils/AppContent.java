@@ -9,4 +9,5 @@ public interface AppContent {
 
     //ROOM
     String FINANCIAL_DATABASE = "financial_database";
+    String ARRAY_CURRENCY = "array_currency";
 }

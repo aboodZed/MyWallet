@@ -34,14 +34,14 @@ public class FinancialMovementRepository {
     }
 
     public LiveData<List<FinancialMovement>> getAllFinancialMovement() {
-        return  dao.getAllFinancialMovement();
+        return dao.getAllFinancialMovement();
     }
 
-    public LiveData<List<FinancialMovement>> getFinancialMovementsByCurrency(String currency){
+    public LiveData<List<FinancialMovement>> getFinancialMovementsByCurrency(String currency) {
         return dao.getFinancialMovementsByCurrency(currency);
     }
 
-    public LiveData<Integer> getSumFinancialMovementsByCurrency(String currency){
+    public LiveData<Integer> getSumFinancialMovementsByCurrency(String currency) {
         return dao.getSumFinancialMovementsByCurrency(currency);
     }
 
@@ -50,7 +50,7 @@ public class FinancialMovementRepository {
 
         private FinancialMovementDao financialMovementDao;
 
-        private InsertFinancialAsyncTask(FinancialMovementDao financialMovementDao){
+        private InsertFinancialAsyncTask(FinancialMovementDao financialMovementDao) {
             this.financialMovementDao = financialMovementDao;
         }
 
@@ -65,7 +65,7 @@ public class FinancialMovementRepository {
 
         private FinancialMovementDao financialMovementDao;
 
-        private UpdateFinancialAsyncTask(FinancialMovementDao financialMovementDao){
+        private UpdateFinancialAsyncTask(FinancialMovementDao financialMovementDao) {
             this.financialMovementDao = financialMovementDao;
         }
 
@@ -80,7 +80,7 @@ public class FinancialMovementRepository {
 
         private FinancialMovementDao financialMovementDao;
 
-        private DeleteFinancialAsyncTask(FinancialMovementDao financialMovementDao){
+        private DeleteFinancialAsyncTask(FinancialMovementDao financialMovementDao) {
             this.financialMovementDao = financialMovementDao;
         }
 

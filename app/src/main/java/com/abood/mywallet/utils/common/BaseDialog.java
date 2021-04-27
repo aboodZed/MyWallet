@@ -16,7 +16,7 @@ import com.abood.mywallet.R;
 import com.abood.mywallet.utils.AppController;
 import com.abood.mywallet.utils.LocalStorage;
 
-abstract class BaseDialog<T extends ViewBinding> extends DialogFragment implements BaseView {
+public abstract class BaseDialog<T extends ViewBinding> extends DialogFragment implements BaseView {
 
     private T viewBinding;
     private double width;

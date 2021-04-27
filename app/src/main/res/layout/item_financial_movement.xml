@@ -12,6 +12,7 @@
         android:id="@+id/tv_id"
         style="@style/SmallTextView"
         android:textStyle="normal"
+        android:textColor="@color/dark_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="@dimen/margin_little"/>
@@ -20,6 +21,7 @@
         android:id="@+id/tv_time"
         style="@style/SmallTextView"
         android:textStyle="normal"
+        android:textColor="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="@dimen/margin_little"/>
@@ -27,7 +29,7 @@
     <TextView
         android:id="@+id/tv_amount"
         style="@style/SmallTextView"
-        android:textStyle="normal"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_id" />
 

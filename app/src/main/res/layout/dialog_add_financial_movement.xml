@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/yellow_button"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_mini">
+
+    <TextView
+        style="@style/MediumTextView"
+        android:layout_gravity="center"
+        android:text="@string/add_financial_movement" />
+
+    <Spinner
+        android:id="@+id/s_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_mini"
+        android:layout_marginBottom="@dimen/margin_mini" />
+
+    <EditText
+        android:id="@+id/et_value"
+        style="@style/EditText"
+        android:layout_marginBottom="@dimen/margin_mini"
+        android:inputType="numberSigned" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add"
+        style="@style/Button"
+        android:layout_gravity="center"
+        android:text="@string/add" />
+
+</LinearLayout>

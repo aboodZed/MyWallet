@@ -7,10 +7,13 @@ import android.view.inputmethod.EditorInfo;
 import com.abood.mywallet.R;
 import com.abood.mywallet.databinding.ActivityLoginBinding;
 import com.abood.mywallet.feature.main.MainActivity;
+import com.abood.mywallet.utils.AppContent;
 import com.abood.mywallet.utils.NavigateUtils;
 import com.abood.mywallet.utils.common.BaseActivity;
 import com.abood.mywallet.utils.fingerprint.FingerPrint;
 import com.abood.mywallet.utils.fingerprint.FingerPrint.FingerprintListener;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements FingerprintListener {
 
@@ -66,6 +69,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     }
 
     private void toMain() {
+        if (getLocalStorage().getObject(AppContent.ARRAY_CURRENCY) == null) {
+            ArrayList<String> strings = new ArrayList<>();
+            strings.add(AppContent.DOLLAR);
+            strings.add(AppContent.DINAR);
+            strings.add(AppContent.SHEKEL);
+            getLocalStorage().setObject(AppContent.ARRAY_CURRENCY, strings);
+        }
         NavigateUtils.activityIntent(this, MainActivity.class, false);
     }
 

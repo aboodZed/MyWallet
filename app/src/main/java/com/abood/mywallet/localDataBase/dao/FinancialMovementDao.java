@@ -31,5 +31,4 @@ public interface FinancialMovementDao {
 
     @Query("SELECT SUM(value) FROM financialmovement WHERE currency Like (:currency)")
     LiveData<Integer> getSumFinancialMovementsByCurrency(String currency);
-
 }

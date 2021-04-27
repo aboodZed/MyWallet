@@ -20,16 +20,16 @@ public class LocalStorage {
         editor = preferences.edit();
     }
 
-    public <T> void setArray(String key, ArrayList<T> arrayList) {
+    public void setObject(String key, Object object) {
         Gson gson = new Gson();
-        String json = gson.toJson(arrayList);
+        String json = gson.toJson(object);
         editor.putString(key, json);
         editor.apply();
     }
 
-    public <T> ArrayList<T> getArray(String key) {
+    public Object getObject(String key) {
         Gson gson = new Gson();
         String json = preferences.getString(key, "");
-        return gson.fromJson(json, ArrayList.class);
+        return gson.fromJson(json, Object.class);
     }
 }
